@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import Login from "../Login/Login";
+import Header from "../Header/Header";
+
+import AllCars from "../AllCars/AllCars";
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <Login />
+        <Header />
+        <AllCars />
       </div>
     );
   }

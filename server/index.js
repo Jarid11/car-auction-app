@@ -15,6 +15,7 @@ const {
 } = process.env;
 
 const { strat, getUser, logoutUser } = require("./controllers/authCtrl");
+const { getCars } = require("./controllers/carCtrl");
 
 app.use(json());
 app.use(cors());
@@ -74,6 +75,9 @@ app.get(
 
 app.get("/api/user", getUser);
 app.get("/logout", logoutUser);
+
+//Car endpoints
+app.get("/api/car", getCars);
 
 let port = PORT || 3001;
 app.listen(port, () => {
