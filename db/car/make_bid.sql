@@ -1,0 +1,1 @@
+INSERT INTO bids (user_id, car_id, current_bid) VALUES($1, $2, $3)

@@ -1,0 +1,1 @@
+select max(current_bid) from bids join cars c on c.car_id = $1

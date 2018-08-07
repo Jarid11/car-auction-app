@@ -14,12 +14,16 @@ class AllCars extends Component {
   }
 
   componentDidMount() {
+    this.getCars();
+  }
+
+  getCars = () => {
     axios.get("/api/car").then(cars => {
       this.setState({
         cars: cars.data
       });
     });
-  }
+  };
 
   handleCarFlag = () => {
     this.setState({
@@ -32,7 +36,12 @@ class AllCars extends Component {
     let allCars = cars.map(e => {
       if (carFlag) {
         return (
-          <Car car={e} key={e.car_id} handleCarFlag={this.handleCarFlag} />
+          <Car
+            car={e}
+            key={e.car_id}
+            handleCarFlag={this.handleCarFlag}
+            getCars={this.getCars}
+          />
         );
       } else {
         return (

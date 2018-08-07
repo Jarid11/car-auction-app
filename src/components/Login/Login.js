@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
+
+import { connect } from "react-redux";
+import { getUser } from "../../ducks/userReducer";
 
 class Login extends Component {
   constructor() {
@@ -10,16 +12,12 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    axios.get("/api/user").then(user => {
-      this.setState({
-        user: user.data
-      });
-    });
+    this.props.getUser();
   }
 
   render() {
-    let { user } = this.state;
-    console.log(this.state);
+    let { user } = this.props;
+    console.log(this.props);
     return (
       <div>
         {!user.user_id ? (
@@ -32,4 +30,9 @@ class Login extends Component {
   }
 }
 
-export default Login;
+let mapStateToProps = state => state;
+
+export default connect(
+  mapStateToProps,
+  { getUser }
+)(Login);

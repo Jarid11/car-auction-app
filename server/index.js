@@ -15,7 +15,7 @@ const {
 } = process.env;
 
 const { strat, getUser, logoutUser } = require("./controllers/authCtrl");
-const { getCars } = require("./controllers/carCtrl");
+const { getCars, makeBid, getHighestBid } = require("./controllers/carCtrl");
 
 app.use(json());
 app.use(cors());
@@ -78,6 +78,8 @@ app.get("/logout", logoutUser);
 
 //Car endpoints
 app.get("/api/car", getCars);
+app.get("/api/car/bid/:car_id", getHighestBid);
+app.post("/api/car", makeBid);
 
 let port = PORT || 3001;
 app.listen(port, () => {
