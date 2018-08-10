@@ -27,7 +27,7 @@
 //   -- current_bid INTEGER
 //   -- )
 
-// CAR DUMMY DATA
+// CAR DUMMY DATA.
 // INSERT INTO cars (
 //   user_id, year, make, model, location, odometer, condition, retail_value,
 //   buy_out_price, images
